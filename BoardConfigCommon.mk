@@ -134,6 +134,9 @@ BOARD_SEPOLICY_DIRS += \
 #    /system/vendor/lib/libflp.so|libshims_flp.so \
 #    /system/vendor/lib/libizat_core.so|libshims_get_process_name.so
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(VENDOR_PATH)
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
