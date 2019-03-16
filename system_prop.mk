@@ -45,6 +45,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.pubypass=true \
     ro.qualcomm.cabl=2 \
     debug.hwui.renderer=opengl \
+    debug.cpurend.vsync=false
 
 #Simulate sdcard on /data/media
 PRODUCT_PROPERTY_OVERRIDES += \
