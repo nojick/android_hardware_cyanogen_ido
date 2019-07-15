@@ -11,7 +11,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.voice.path.for.pcm.voip=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.charger.enable_suspend = true
+    ro.charger.enable_suspend = true \
+    ro.charger.disable_init_blank=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=25 \
