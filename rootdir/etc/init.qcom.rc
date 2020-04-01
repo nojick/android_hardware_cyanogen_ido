@@ -200,6 +200,8 @@ on boot
     chown system graphics /sys/class/graphics/fb0/modes
     chmod 0664 /sys/class/graphics/fb0/modes
 
+    setprop vendor.post_boot.parsed 1
+
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main
     user root
