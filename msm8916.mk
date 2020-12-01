@@ -40,12 +40,16 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8916 \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessing
+    libqcomvoiceprocessing \
+
+    
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@4.0-impl
+    android.hardware.audio@5.0-impl \
+    android.hardware.audio.effect@5.0-impl \
+    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.soundtrigger@2.2-service \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
@@ -116,6 +120,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
+
 
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh
@@ -197,8 +202,8 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_cm
+#PRODUCT_PACKAGES += \
+#    librecovery_updater_cm
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -240,14 +245,23 @@ PRODUCT_PACKAGES += \
     libwcnss_qmi \
     wcnss_service
 
+
 PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# WiFi Display
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service.legacy
+    libaacwrapper \
+    libnl
 
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
+
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
