@@ -8,7 +8,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.offload.buffer.size.kb=64 \
     vendor.audio.offload.gapless.enabled=true \
     vendor.audio_hal.period_size=192 \
-    vendor.voice.path.for.pcm.voip=true
+    vendor.voice.path.for.pcm.voip=true \
+    persist.audio.dirac.speaker=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=25 \
