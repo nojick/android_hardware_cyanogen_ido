@@ -45,8 +45,6 @@ on fs
     restorecon_recursive /persist
 
 on post-fs-data
-    # Create /data/time folder for time-services
-    mkdir /data/vendor/time 0770 system system
     # Create folder for mm-qcamera-daemon
     mkdir /data/fdAlbum 0770 camera camera
     mkdir /data/misc/camera 0770 camera camera
@@ -91,14 +89,6 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
-    # Prevent permission denied error for telephony
-    chmod 0644 /proc/cmdline
-    # VM BMS
-    chown root system /sys/class/power_supply/bms/current_now
-    chown root system /sys/class/power_supply/bms/voltage_ocv
-    chmod 0664 /sys/class/power_supply/bms/current_now
-    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
-    
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
@@ -114,7 +104,7 @@ on boot
     # Create persist folders
     mkdir /persist/alarm 0770 system system
     mkdir /persist/display 0770 system graphics
-    mkdir /persist/time 0770 system system
+
     # Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
@@ -239,20 +229,6 @@ service charger /system/bin/charger
     capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
-service vm_bms /vendor/bin/vm_bms
-    class main
-    user root
-    group root wakelock
-    
- on charger
-    wait /dev/block/bootdevice/by-name/system
-    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    chown root system /sys/class/power_supply/bms/current_now
-    chown root system /sys/class/power_supply/bms/voltage_ocv
-    chmod 0664 /sys/class/power_supply/bms/current_now
-    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
-    start vm_bms
-    
 # start camera server as daemon
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
@@ -300,18 +276,6 @@ service wcnss-service /system/vendor/bin/wcnss_service
 service qcom-mem /system/vendor/bin/init.qcom.mem.sh
     disabled
     oneshot
-    
-service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-    
-service time_daemon /vendor/bin/time_daemon
-    class main
-    user root
-    group root
-    writepid /dev/cpuset/system-background/tasks
-    
+
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
