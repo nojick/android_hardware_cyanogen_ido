@@ -246,6 +246,7 @@
         <fqname>@1.0::IVibrator/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.lineage.trust</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
@@ -256,10 +257,13 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi</name>
+        <name>vendor.qti.hardware.cryptfshw</name>
         <transport>hwbinder</transport>
         <version>1.3</version>
+        <version>1.0</version>
         <interface>
             <name>IWifi</name>
+            <name>ICryptfsHw</name>
             <instance>default</instance>
         </interface>
         <fqname>@1.0::ICryptfsHw/default</fqname>
