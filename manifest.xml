@@ -57,6 +57,7 @@
             <name>ICameraProvider</name>
             <instance>legacy/0</instance>
         </interface>
+        <fqname>@2.4::ICameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.drm</name>
