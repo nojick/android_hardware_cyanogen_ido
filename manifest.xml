@@ -107,6 +107,7 @@
             <name>IAllocator</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IAllocator/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
@@ -116,6 +117,7 @@
             <name>IComposer</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.1::IComposer/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.mapper</name>
@@ -125,6 +127,7 @@
             <name>IMapper</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IMapper/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.health</name>
@@ -134,6 +137,7 @@
             <name>IHealth</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IHealth/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.keymaster</name>
@@ -143,6 +147,7 @@
             <name>IKeymasterDevice</name>
             <instance>default</instance>
         </interface>
+        <fqname>@3.0::IKeymasterDevice/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.light</name>
@@ -152,6 +157,7 @@
             <name>ILight</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::ILight/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
@@ -165,6 +171,8 @@
             <name>IOmxStore</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IOmx/default</fqname>
+        <fqname>@1.0::IOmxStore/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.memtrack</name>
@@ -183,6 +191,7 @@
             <name>IPower</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IMemtrack/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio</name>
@@ -198,6 +207,10 @@
             <instance>slot1</instance>
             <instance>slot2</instance>
         </interface>
+        <fqname>@1.1::IRadio/slot1</fqname>
+        <fqname>@1.1::IRadio/slot2</fqname>
+        <fqname>@1.1::ISap/slot1</fqname>
+        <fqname>@1.1::ISap/slot2</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio.deprecated</name>
@@ -208,6 +221,8 @@
             <instance>slot1</instance>
             <instance>slot2</instance>
         </interface>
+        <fqname>@1.0::IOemHook/slot1</fqname>
+        <fqname>@1.0::IOemHook/slot2</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.renderscript</name>
@@ -217,6 +232,7 @@
             <name>IDevice</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IDevice/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.sensors</name>
@@ -226,6 +242,7 @@
             <name>ISensors</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ISensors/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.usb</name>
@@ -235,6 +252,7 @@
             <name>IUsb</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IVibrator/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.vibrator</name>
@@ -244,6 +262,7 @@
             <name>IVibrator</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IUsbRestrict/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi</name>
@@ -253,6 +272,7 @@
             <name>IWifi</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ICryptfsHw/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi.hostapd</name>
