@@ -36,27 +36,46 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     tinymix
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service.software
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    audio.bluetooth.default \
+    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.bluetooth.a2dp@1.0 \
+
+
 PRODUCT_PACKAGES += \
     audio.primary.msm8916 \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessing \
+    libqcomvoiceprocessing
 
-    
 
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio@5.0-impl \
-    android.hardware.audio.effect@5.0-impl \
-    android.hardware.soundtrigger@2.2-impl \
-    android.hardware.soundtrigger@2.2-service \
+    android.hardware.audio@6.0 \
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.common@6.0 \
+    android.hardware.audio.common@6.0-util \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@2.0-service \
+    android.hardware.audio.effect@6.0 \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.bluetooth.a2dp@1.0-impl \
+    android.hardware.soundtrigger@2.1-impl \
+    android.hardware.soundtrigger@2.1-service \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    libbt-vendor
+    libbt-vendor \
+    libbthost_if
 
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
@@ -88,7 +107,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.3-service.clearkey
 
 # Encryption
 PRODUCT_PACKAGES += \
@@ -109,9 +129,8 @@ PRODUCT_PACKAGES += \
     libshims_flp
 
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-service
-
+    android.hardware.gnss@1.0-impl.legacy \
+    android.hardware.gnss@1.0-service.legacy
 # Init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
@@ -120,8 +139,10 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
-
-
+    
+PRODUCT_PACKAGES += \
+ android.hardware.ir@1.0-service
+ 
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh
 
@@ -146,9 +167,9 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-legacymm \
-    vendor.lineage.livedisplay@2.0-service-sysfs
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.livedisplay@2.0-service-legacymm \
+#    vendor.lineage.livedisplay@2.0-service-sysfs
 
 # Media
 PRODUCT_PACKAGES += \
@@ -193,17 +214,27 @@ endif
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service-qti
+    android.hardware.power-service-qti
+
 
 # Radio
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
     libxml2
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
+    android.hidl.manager@1.0-java \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
 
 # Recovery
-#PRODUCT_PACKAGES += \
-#    librecovery_updater_cm
+PRODUCT_PACKAGES += \
+    librecovery_updater_cm
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -245,23 +276,20 @@ PRODUCT_PACKAGES += \
     libwcnss_qmi \
     wcnss_service
 
-
 PRODUCT_PACKAGES += \
+libwifi-hal-qcom \
     hostapd \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    lib_driver_cmd_qcwcn \
+    libwifi-hal \
+    hostapd_nohidl \
+    libcld80211
+    
 
-# WiFi Display
 PRODUCT_PACKAGES += \
-    libaacwrapper \
-    libnl
+   android.hardware.wifi@1.0-service
 
-PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service
-
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
-PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
