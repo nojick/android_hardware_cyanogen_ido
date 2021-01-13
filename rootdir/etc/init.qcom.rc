@@ -25,7 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /vendor/etc/init/hw/init.qcom.power.rc
+#import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
@@ -262,6 +262,8 @@ service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
 
 on property:sys.boot_completed=1
     restart cameraserver
+    start qcom-post-boot
+    setprop sys.io.scheduler "cfq"
 
   swapon_all /system/vendor/etc/fstab.qcom
   
@@ -303,5 +305,10 @@ service qcom-mem /system/vendor/bin/init.qcom.mem.sh
     disabled
     oneshot
 
+service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
+    class late_start
+    user root
+    disabled
+    oneshot
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
