@@ -114,6 +114,8 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
+    # Prevent permission denied error for telephony
+    chmod 0644 /proc/cmdline
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
