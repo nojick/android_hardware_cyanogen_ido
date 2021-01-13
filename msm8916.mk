@@ -36,10 +36,6 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     tinymix
 
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-service.software
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
@@ -156,20 +152,18 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
-# Keymaster
-ifneq ($(TARGET_PROVIDES_KEYMASTER),true)
 PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.0-service \
     keystore.msm8916
-endif
 
+# Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
-
 # LiveDisplay
 #PRODUCT_PACKAGES += \
 #    vendor.lineage.livedisplay@2.0-service-legacymm \
 #    vendor.lineage.livedisplay@2.0-service-sysfs
+    android.hardware.authsecret@1.0-service \
+    android.hardware.gatekeeper@1.0-service.software
 
 # Media
 PRODUCT_PACKAGES += \
