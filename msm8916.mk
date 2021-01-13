@@ -159,10 +159,6 @@ PRODUCT_PACKAGES += \
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
-# LiveDisplay
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.livedisplay@2.0-service-legacymm \
-#    vendor.lineage.livedisplay@2.0-service-sysfs
     android.hardware.authsecret@1.0-service \
     android.hardware.gatekeeper@1.0-service.software
 
