@@ -68,6 +68,8 @@ on fs
     restorecon_recursive /persist
 
 on post-fs-data
+    # Create /data/time folder for time-services
+    mkdir /data/vendor/time 0770 system system
     # Create folder for mm-qcamera-daemon
     mkdir /data/fdAlbum 0770 camera camera
     mkdir /data/misc/camera 0770 camera camera
@@ -127,6 +129,8 @@ on boot
     # Create persist folders
     mkdir /persist/alarm 0770 system system
     mkdir /persist/display 0770 system graphics
+
+    mkdir /persist/time 0770 system system
 
     # Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
@@ -310,5 +314,10 @@ service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
     user root
     disabled
     oneshot
+service time_daemon /vendor/bin/time_daemon
+    class main
+    user root
+    group root
+
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
