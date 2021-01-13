@@ -273,22 +273,20 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    libwcnss_qmi \
-    wcnss_service
-
-PRODUCT_PACKAGES += \
-libwifi-hal-qcom \
-    hostapd \
-    wpa_supplicant \
+    hostapd:64 \
+    libQWiFiSoftApCfg \
+    libqsap_sdk \
+    libwpa_client \
+    wifilogd \
+    wcnss_service:64 \
+    wpa_supplicant:64 \
     wpa_supplicant.conf \
     lib_driver_cmd_qcwcn \
-    libwifi-hal \
-    hostapd_nohidl \
+    libwifi-hal-qcom \
     libcld80211
-    
 
 PRODUCT_PACKAGES += \
-   android.hardware.wifi@1.0-service
+ android.hardware.wifi@1.0-service-lazy:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
