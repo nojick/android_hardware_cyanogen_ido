@@ -224,8 +224,8 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor
 
 # Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_cm
+#PRODUCT_PACKAGES += \
+#    librecovery_updater_cm
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -245,9 +245,9 @@ $(call inherit-product, device/cyanogen/msm8916-common/system_prop_msm8916.mk)
 endif
 
 # TimeKeep
-PRODUCT_PACKAGES += \
-    timekeep \
-    TimeKeep
+#PRODUCT_PACKAGES += \
+#    timekeep \
+#   TimeKeep
 
 # Trust HAL
 PRODUCT_PACKAGES += \
