@@ -292,6 +292,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
 
 service ppd /system/vendor/bin/mm-pp-daemon
     class hal
+    disabled
     user system
     socket pps stream 0660 system system
     group system graphics
@@ -311,6 +312,7 @@ service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
     user root
     disabled
     oneshot
+
 service time_daemon /vendor/bin/time_daemon
     class main
     user root
