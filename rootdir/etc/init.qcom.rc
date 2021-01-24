@@ -68,6 +68,11 @@ on fs
     restorecon_recursive /persist
 
 on post-fs-data
+    #Create directories for Location services
+    mkdir /data/vendor/location 0770 gps gps
+    mkdir /data/vendor/location/mq 0770 gps gps
+    mkdir /data/vendor/location/xtwifi 0770 gps gps
+    
     # Create /data/time folder for time-services
     mkdir /data/vendor/time 0770 system system
     # Create folder for mm-qcamera-daemon
@@ -339,6 +344,11 @@ service time_daemon /vendor/bin/time_daemon
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
-    
+
+service loc_launcher /system/vendor/bin/loc_launcher
+    #loc_launcher will start as root and set its uid to gps
+    class late_start
+    group gps inet diag wifi
+
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
