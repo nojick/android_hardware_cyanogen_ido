@@ -271,18 +271,22 @@ service vm_bms /vendor/bin/vm_bms
     start vm_bms
 
 # start camera server as daemon
-service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
+service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
-    group camera system inet input graphics
+    group camera gps system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
+    
+on property:init.svc.media=restarting
+    restart vendor.qcamerasvr
+
+on property:init.svc.servicemanager=restarting
+    restart vendor.qcamerasvr
 
 on property:sys.boot_completed=1
-    restart cameraserver
     start qcom-post-boot
     setprop sys.io.scheduler "cfq"
-
-  swapon_all /system/vendor/etc/fstab.qcom
+    swapon_all /system/vendor/etc/fstab.qcom
   
 service qseecomd /system/vendor/bin/qseecomd
     class core
