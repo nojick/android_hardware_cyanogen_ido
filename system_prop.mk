@@ -52,8 +52,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.core_ctl_max_cpu=4
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.iorapd.enable=false \
-	persist.traced.enable=0
+	ro.iorapd.enable=true \
+	persist.traced.enable=1
 	
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
