@@ -1,0 +1,4 @@
+allow dumpstate hal_power_default:binder call;
+allow dumpstate persist_file:dir getattr;
+
+

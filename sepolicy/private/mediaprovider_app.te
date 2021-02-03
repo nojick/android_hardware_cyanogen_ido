@@ -1,0 +1,2 @@
+allow mediaprovider_app tmpfs:file { getattr setattr };
+allow mediaprovider_app tmpfs:file setattr;

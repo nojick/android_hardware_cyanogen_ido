@@ -1,0 +1,13 @@
+# TODO(b/36601695): Remove data_between_core_and_vendor violators once
+# hal_drm no longer directly accesses media_data_file.
+typeattribute hal_drm_widevine data_between_core_and_vendor_violators;
+allow hal_drm_widevine media_data_file:dir create_dir_perms;
+allow hal_drm_widevine media_data_file:file create_file_perms;
+allow hal_drm_widevine vendor_data_file:dir write;
+allow hal_drm_widevine vendor_data_file:dir add_name;
+allow hal_drm_widevine vendor_data_file:dir create;
+allow hal_drm_widevine vendor_data_file:file create;
+allow hal_drm_widevine vendor_data_file:file { open read write };
+allow hal_drm_widevine media_rw_data_file:file { getattr open read };
+allow hal_drm_widevine vendor_data_file:dir read;
+allow hal_drm_widevine vendor_data_file:file { getattr open read write };

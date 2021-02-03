@@ -12,6 +12,11 @@ type grep_exec, exec_type, file_type;
 type sysfs_mmi_touch, fs_type, sysfs_type;
 
 
+# fingerprint
+type fpc_socket, file_type;
+type fpc_sysfs, fs_type, sysfs_type;
+type fpc_data_file, file_type, core_data_file_type, data_file_type;
+
 # RIL
 type netmgr_data_file, file_type, data_file_type;
 type persist_modem_file, file_type;

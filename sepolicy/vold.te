@@ -1,0 +1,3 @@
+allow vold hal_bootctl_hwservice:hwservice_manager find;
+allow vold sysfs_mmc_host:file write;
+

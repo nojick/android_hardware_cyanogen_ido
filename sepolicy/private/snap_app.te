@@ -1,0 +1,3 @@
+get_prop(snap_app, exported_camera_prop);
+
+

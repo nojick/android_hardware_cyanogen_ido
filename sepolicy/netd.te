@@ -1,0 +1,4 @@
+allow netd apk_data_file:file read;
+allow netd untrusted_app_29:unix_stream_socket { read write };
+allow netd untrusted_app_29:unix_stream_socket getopt;
+

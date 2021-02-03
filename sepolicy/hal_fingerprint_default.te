@@ -1,0 +1,31 @@
+typeattribute hal_fingerprint_default binder_in_vendor_violators;
+
+vndbinder_use(hal_fingerprint_default)
+hwbinder_use(hal_fingerprint_default)
+
+allow hal_fingerprint_default servicemanager:binder call;
+allow hal_fingerprint_default servicemanager:binder transfer;
+allow servicemanager hal_fingerprint_default:file open;
+allow hal_fingerprint_default default_android_service:service_manager add;
+allow hal_fingerprint_default sysfs:file write;
+allow hal_fingerprint_default fpc_sysfs:dir search;
+allow hal_fingerprint_default fpc_sysfs:file write;
+allow hal_fingerprint_default fpc_sysfs:file read;
+allow hal_fingerprint_default tee_device:chr_file { read write };
+allow hal_fingerprint_default tee_device:chr_file open;
+allow hal_fingerprint_default tee_device:chr_file ioctl;
+allow hal_fingerprint_default firmware_file:dir search;
+allow hal_fingerprint_default firmware_file:file read;
+allow hal_fingerprint_default firmware_file:file open;
+allow hal_fingerprint_default fpc_sysfs:file open;
+allow hal_fingerprint_default firmware_file:file getattr;
+allow hal_fingerprint_default fingerprintd_data_file:dir write;
+allow hal_fingerprint_default fingerprintd_data_file:dir search;
+allow hal_fingerprint_default fingerprintd_data_file:file read;
+allow hal_fingerprint_default fingerprintd_data_file:file open;
+allow hal_fingerprint_default fingerprintd_data_file:file getattr;
+allow hal_fingerprint_default fingerprintd_data_file:dir add_name;
+allow hal_fingerprint_default fingerprintd_data_file:file create;
+
+set_prop(hal_fingerprint_default, system_prop)
+

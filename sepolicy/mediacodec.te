@@ -1,0 +1,1 @@
+allow mediacodec media_rw_data_file:file getattr;

@@ -1,2 +1,6 @@
 # TODO - root cause why the kernel generating this denial.
 allow kernel domain:process setsched;
+allow kernel self:capability dac_override;
+allow kernel untrusted_app:fd use;
+allow kernel untrusted_app_25:fd use;
+allow kernel untrusted_app_29:fd use;
