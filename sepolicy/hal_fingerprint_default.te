@@ -19,13 +19,8 @@ allow hal_fingerprint_default firmware_file:file read;
 allow hal_fingerprint_default firmware_file:file open;
 allow hal_fingerprint_default fpc_sysfs:file open;
 allow hal_fingerprint_default firmware_file:file getattr;
-allow hal_fingerprint_default fingerprintd_data_file:dir write;
-allow hal_fingerprint_default fingerprintd_data_file:dir search;
-allow hal_fingerprint_default fingerprintd_data_file:file read;
-allow hal_fingerprint_default fingerprintd_data_file:file open;
-allow hal_fingerprint_default fingerprintd_data_file:file getattr;
-allow hal_fingerprint_default fingerprintd_data_file:dir add_name;
-allow hal_fingerprint_default fingerprintd_data_file:file create;
+allow hal_fingerprint_default fingerprintd_data_file:dir { rw_dir_perms };
+allow hal_fingerprint_default fingerprintd_data_file:file { create_file_perms };
 
 set_prop(hal_fingerprint_default, system_prop)
 
