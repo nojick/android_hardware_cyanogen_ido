@@ -63,7 +63,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.bluetooth.a2dp@1.0-impl \
     android.hardware.soundtrigger@2.2-impl \
-    android.hardware.soundtrigger@2.2-service \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
@@ -280,7 +279,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
 
 PRODUCT_PACKAGES += \
- android.hardware.wifi@1.0-service:64
+ android.hardware.wifi@1.0-service-lazy:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
