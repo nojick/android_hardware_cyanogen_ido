@@ -280,6 +280,7 @@ PRODUCT_PACKAGES += \
     hostapd:64 \
     libqsap_sdk:64 \
     libwpa_client:64 \
+    wpa_cli:64 \
     wifilogd:64 \
     wcnss_service:64 \
     wpa_supplicant:64 \
