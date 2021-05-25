@@ -26,8 +26,7 @@ allow init system_file:file execute_no_trans;
 allow init tee_device:chr_file { ioctl open read write };
 allow init vendor_file:file execute_no_trans;
 allow init ion_device:chr_file open;
-allow init system_file:dir relabelfrom;
-allow init system_file:file relabelfrom;
+allow init system_file:dir mounton;
 allow init vendor_configs_file:file relabelfrom;
 allow init vendor_file:file relabelfrom;
 
