@@ -42,6 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank=0 \
     drm.service.enabled=1 \
     vidc.enc.narrow.searchrange=1
+    debug.stagefright.ccodec=0
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
