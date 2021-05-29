@@ -103,15 +103,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fs_config_files
 
-# GPS
-PRODUCT_PACKAGES += \
-    libshims_get_process_name \
-    libshims_flp
-
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-service
-
 # Init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
