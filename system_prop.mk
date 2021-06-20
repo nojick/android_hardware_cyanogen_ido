@@ -37,12 +37,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.profile=true \
     debug.composition.type=c2d \
     debug.sf.hw=0 \
+    debug.egl.hw=0 \
     sys.hwc.gpu_perf_mode=1 \
     persist.demo.hdmirotationlock=false \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
     persist.hwc.pubypass=true \
-    ro.qualcomm.cabl=2
+    ro.qualcomm.cabl=2 \
+    debug.hwui.renderer=opengl \
 
 #Simulate sdcard on /data/media
 PRODUCT_PROPERTY_OVERRIDES += \
