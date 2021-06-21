@@ -279,17 +279,12 @@ service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     group camera gps system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
 
-on property:init.svc.media=restarting
-    restart vendor.qcamerasvr
-
-on property:init.svc.servicemanager=restarting
-    restart vendor.qcamerasvr
-
 on property:sys.boot_completed=1
     start qcom-post-boot
     setprop sys.io.scheduler "bfq"
     swapon_all /system/vendor/etc/fstab.qcom
-  
+    restart vendor.camera-provider-2-5
+
 service qseecomd /system/vendor/bin/qseecomd
     class core
     user root
