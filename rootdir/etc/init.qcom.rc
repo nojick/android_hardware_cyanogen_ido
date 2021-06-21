@@ -278,7 +278,7 @@ service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     user camera
     group camera gps system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
-    
+
 on property:init.svc.media=restarting
     restart vendor.qcamerasvr
 
@@ -287,21 +287,13 @@ on property:init.svc.servicemanager=restarting
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-    setprop sys.io.scheduler "cfq"
+    setprop sys.io.scheduler "bfq"
     swapon_all /system/vendor/etc/fstab.qcom
   
 service qseecomd /system/vendor/bin/qseecomd
     class core
     user root
     group root
-
-
-service perfd /system/vendor/bin/perfd
-    class main
-    user root
-    group root readproc system
-    disabled
-
 
 service thermal-engine /system/vendor/bin/thermal-engine
     class main
@@ -311,22 +303,10 @@ service thermal-engine /system/vendor/bin/thermal-engine
     socket thermal-recv-passive-client stream 0666 system system
     group root
 
-
-service ppd /system/vendor/bin/mm-pp-daemon
-    class hal
-    disabled
-    user system
-    socket pps stream 0660 system system
-    group system graphics
-
 service wcnss-service /system/vendor/bin/wcnss_service
     class late_start
     user system
     group system wifi radio
-    oneshot
-
-service qcom-mem /system/vendor/bin/init.qcom.mem.sh
-    disabled
     oneshot
 
 service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
