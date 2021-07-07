@@ -50,7 +50,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.max_starting_bg=8 \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.core_ctl_min_cpu=0 \
-    ro.core_ctl_max_cpu=4
+    ro.core_ctl_max_cpu=4 \
+    sys.io.scheduler=bfq
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
