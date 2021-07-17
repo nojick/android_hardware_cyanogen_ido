@@ -27,4 +27,6 @@ allow untrusted_app_29 rootfs:dir read;
 allow untrusted_app_29 rootfs:dir open;
 allow untrusted_app_29 persist_file:dir getattr;
 allow untrusted_app_29 rootfs:file getattr;
-
+allow untrusted_app_29 input_device:dir search;
+allow untrusted_app_29 mnt_media_rw_file:dir getattr;
+allow untrusted_app_29 mnt_pass_through_file:dir getattr;
