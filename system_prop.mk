@@ -41,7 +41,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.demo.hdmirotationlock=false \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
-    persist.hwc.pubypass=true
+    persist.hwc.pubypass=true \
+    ro.qualcomm.cabl=2
+
+#Simulate sdcard on /data/media
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.fuse_sdcard=true
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
