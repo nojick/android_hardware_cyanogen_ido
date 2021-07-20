@@ -53,3 +53,6 @@
 # Power stats
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock      u:object_r:hal_power_stats_default_exec:s0
 
+# Touch
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service.ido    u:object_r:hal_lineage_touch_default_exec:s0
+
