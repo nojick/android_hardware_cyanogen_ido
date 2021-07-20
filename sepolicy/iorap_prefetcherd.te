@@ -1,5 +1,4 @@
 allow iorap_prefetcherd system_app_data_file:dir search;
 allow iorap_prefetcherd system_app_data_file:file r_file_perms;
 allow iorap_prefetcherd zygote_exec:file read;
-allow iorap_prefetcherd system_suspend_exec:file { open read };
 

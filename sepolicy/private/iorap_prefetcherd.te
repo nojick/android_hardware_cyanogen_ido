@@ -1,0 +1,2 @@
+allow iorap_prefetcherd system_suspend_exec:file { open read };
+
