@@ -37,7 +37,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.profile=true \
     debug.composition.type=c2d \
     debug.sf.hw=0 \
-    debug.egl.hw=0 \
     sys.hwc.gpu_perf_mode=1 \
     persist.demo.hdmirotationlock=false \
     persist.hwc.mdpcomp.enable=true \
@@ -45,11 +44,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.pubypass=true \
     ro.qualcomm.cabl=2 \
     debug.hwui.renderer=opengl \
-    debug.cpurend.vsync=false
-
-#Simulate sdcard on /data/media
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.fuse_sdcard=true
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
